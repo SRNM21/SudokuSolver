@@ -60,8 +60,8 @@ Public Class Form1
             Cell.ForeColor = Color.FromArgb(220, 220, 220)
 
             'Get the index of the selected cell
-            Dim R As Integer = CInt(CurrBtn.Name(7).ToString())
-            Dim C As Integer = CInt(CurrBtn.Name(8).ToString())
+            Dim R As Integer = CurrBtn.Name(7).ToString()
+            Dim C As Integer = CurrBtn.Name(8).ToString()
 
             'Highlight the Row, Column, and Sub Grid of the selected Cell
             HighlightRow(Cell, R, ValidBC)
@@ -214,8 +214,8 @@ Public Class Form1
             CurrBtn.Text = FuncBtn.Text.ToString()
 
             'Get the index of the selected cell
-            Dim R As Integer = CInt(CurrBtn.Name(7).ToString())
-            Dim C As Integer = CInt(CurrBtn.Name(8).ToString())
+            Dim R As Integer = CurrBtn.Name(7).ToString()
+            Dim C As Integer = CurrBtn.Name(8).ToString()
 
             'Add Value and Flag
             GridValue(R)(C) = FuncBtn.Text.ToString()
@@ -244,8 +244,8 @@ Public Class Form1
             CurrBtn.Text = ""
 
             'Get the index of the selected cell
-            Dim R As Integer = CInt(CurrBtn.Name(7).ToString())
-            Dim C As Integer = CInt(CurrBtn.Name(8).ToString())
+            Dim R As Integer = CurrBtn.Name(7).ToString()
+            Dim C As Integer = CurrBtn.Name(8).ToString()
 
             'Reset the Value and Flag
             GridValue(R)(C) = 0
