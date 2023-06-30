@@ -1,12 +1,16 @@
 ﻿Public Class SudokuSolver
-    Public Shared Function IsSafe(ByVal Grid As Integer()(),
-                                  ByVal Row As Integer,
-                                  ByVal Col As Integer,
-                                  ByVal K As Integer) As Boolean
+    Public Shared Function IsSafe(Grid As Integer()(),
+                                  Row As Integer,
+                                  Col As Integer,
+                                  K As Integer) As Boolean
 
+        'Check Row if Safe
         Dim SafeRow As Boolean = Not Grid(Row).Any(Function(X) X = K)
+
+        'Check Column if Safe
         Dim SafeCol As Boolean = Not Enumerable.Range(0, 9).Any(Function(I) Grid(I)(Col) = K)
 
+        'Check Sub Grid if Safe
         Dim SubGridRowIndex As Integer = Math.Floor(Row / 3) * 3
         Dim SubGridColIndex As Integer = Math.Floor(Col / 3) * 3
 
@@ -16,9 +20,9 @@
 
         Return SafeRow AndAlso SafeCol AndAlso SafeSG
     End Function
-    Shared Function SolveSudoku(ByVal Grid As Integer()(),
-                                ByVal R As Integer,
-                                ByVal C As Integer) As Boolean
+    Shared Function SolveSudoku(Grid As Integer()(),
+                                R As Integer,
+                                C As Integer) As Boolean
 
         If R = 9 Then
             Return True
@@ -27,6 +31,7 @@
         ElseIf Grid(R)(C) <> 0 Then
             Return SolveSudoku(Grid, R, C + 1)
         Else
+            'Check Possible combination
             For K As Integer = 1 To 9
                 If IsSafe(Grid, R, C, K) Then
                     Grid(R)(C) = K
