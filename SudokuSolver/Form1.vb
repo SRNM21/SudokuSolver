@@ -131,7 +131,7 @@ Public Class Form1
         'Check each cell if it has duplicates in Row, Column, and Sub Grid
         For R As Integer = 0 To 8
             For C As Integer = 0 To 8
-                If DuplicateInRow(R) AndAlso DuplicateInCol(C) AndAlso DuplicateInSG(R, C) Then
+                If DuplicateInRow(R) OrElse DuplicateInCol(C) OrElse DuplicateInSG(R, C) Then
                     Return False
                 End If
             Next
